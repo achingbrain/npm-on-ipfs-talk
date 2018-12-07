@@ -10,9 +10,13 @@ article
     p.bullet JavaScript Developer at Protocol Labs
     p.bullet Working on IPFS
     p.bullet @achingbrain on GitHub and Twitter
+    aside(style='font-size: 50px')
+      li Who am i
 
   section
     img(src='images/npm-on-ipfs.svg')
+    aside(style='font-size: 50px')
+      li What is this talk about
 
   section
     img(src='images/npm-logo.svg')
@@ -25,10 +29,10 @@ article
   section
     img(src='images/ipfs.svg')
     aside(style='font-size: 50px')
-      li What is it
-      li A decentralised, shared file system
-      li The distributed web
-      li The permanent web
+      li What is IPFS
+      li A distributed, shared file system
+      li Used to build distributed applications
+      li Or dweb
 
   section
     h2.bullet IPFS
@@ -47,22 +51,24 @@ article
       li What is content addressing?
  
   section
-    img(src='images/cat.gif')
     p http://example.com/cat.gif
+    img(src='images/cat.gif')
     aside(style='font-size: 50px')
       li Say we have a gif we want to get from the internet
       li Normal way is URL
       li Been around forever
       li Understand what they are
+      li Location based addressing
       li protocol - host - path
 
   section
     h1 Problems
+    aside(style='font-size: 50px')
+      li Not the ideal solution
 
   section
     p No guarantee of content integrity
     img(src='images/hotlinking.jpg')
-    p http://example.com/cat.gif
     aside(style='font-size: 50px')
       li Content changes
       li Request one thing, get something else
@@ -70,7 +76,6 @@ article
   section
     p Routing is baked in
     img(src='images/server-is-down.jpg')
-    p http://example.com/cat.gif
     aside(style='font-size: 50px')
       li Servers go away
       li Can't find content another way
@@ -78,23 +83,26 @@ article
   section
     p Easy to block
     img(src='images/blocked.jpg')
-    p http://example.com/cat.gif
     aside(style='font-size: 50px')
       li Typically resolves to a central location
+      li Makes it easy to block things like Wikipedia in developing nations
 
   section
     h2.bullet Content addressing
     ul
-      li.bullet Content has an identifer
+      li.bullet Content has an identifer (CID)
         small
           pre QmcniBv7UQ4gGPQQW2BwbD4ZZHzN3o3tPuNLZCbBchd1zh
       li.bullet The identifier can be used to
       li.bullet ✅ Resolve content
       li.bullet ✅ Verify content
     aside(style='font-size: 50px')
-      li Content has a content identifeir
-      li
-        a(href="http://localhost:1234/" target="_blank") cid tools
+      ul
+        li Content has a content identifer
+        li It looks like this
+        li Can unpack it:
+        li
+          a(href="http://localhost:1234/" target="_blank") cid tools
 
   section
     h1 Distributed
@@ -128,8 +136,8 @@ article
   section(data-bespoke-backdrop='sunrise')
     img(src='images/ipfs.svg')
     aside(style='font-size: 50px')
-      li IPFS
-      li How does it work
+      li Those are the techonolgies that underpin IPFS
+      li But how does it work?
 
   section(data-bespoke-backdrop='sunrise')
     p Each file is broken into chunks
@@ -137,38 +145,29 @@ article
     aside(style='font-size: 50px')
       li Each file is broken into chunks
       li Each chunk has a content identifier
-  
-  section(data-bespoke-backdrop='sunrise')
-    p Duplicates are removed
-    img(src='images/ipfs-illustrations-how-2.svg')
-    aside(style='font-size: 50px')
-      li Every peer is equal
-  
+      li Chunks are arranged in a graph
+      li A Directed Acyclic Graph
+      li A DAG
+      li Duplicates are removed by matching content identifiers
+
   section(data-bespoke-backdrop='sunrise')
     p Each network node makes content available
     img(src='images/ipfs-illustrations-how-3.svg')
     aside(style='font-size: 50px')
+      li Each node makes some or all of the chunks available
       li Content is distributed through the network
   
   section(data-bespoke-backdrop='sunrise')
-    p The network resolves content based on the hash
+    p The network resolves content based on the Content Identifier
     img(src='images/ipfs-illustrations-how-4.svg')
     aside(style='font-size: 50px')
       li Peers will pass on queries for content
-
-  section(data-bespoke-backdrop='sunrise')
-    img(src='images/ipfs-illustration-network.svg' height="200%" width="200%")
-    aside(style='font-size: 50px')
-      li Network is resilient
-      li Hashes are stable
-      li Each node hasing content gets the same hash
-      li Content is replicated throughout the network
-      li Approaching the permanent web
 
   section(data-bespoke-backdrop='contributors')
     h2 And it's all open source
     li 3100+ contributors
     li 340+ contributing every month
+    li https://github.com/ipfs
 
   section
     img(src='images/npm-on-ipfs.jpg')
@@ -222,8 +221,7 @@ article
   section
     h2 But how is this better?
     aside(style='font-size: 50px')
-      li The network makes guarentees that content will be available
-      li But apart from that it's not much better
+      li Like this there's not much benefit
       li What if you could skip HTTP and just pull content from IPFS?
 
   section
@@ -249,35 +247,35 @@ article
     aside(style='font-size: 50px')
       li become part of the network
       li for a few mintues
-  
+      li Final piece of the puzzle is replication
+      li how to get new versions of modules?
+
   section
     img(src='images/ipfs-npm-replication.png')
     aside(style='font-size: 50px')
-      li how to get new versions of modules?
-      li how to reduce dependence on central registry?
       li replication nodes seeding IPFS with content
       li running 24x7
       li what next?
       li add ipfs as a transport to npm
       li add ipfs hashes to npm registry
       li publishing to IPFS?
+      li no central registry?
 
   section
-    h2 All open source
+    h2 Thanks!
     p
       pre https://github.com/ipfs/js-ipfs
       pre https://github.com/ipfs-shipyard/npm-on-ipfs
       pre https://github.com/ipfs-shipyard/ipfs-npm-registry-mirror
-    aside(style='font-size: 50px')
-      li All open source
-
-  section
-    h2 Thanks!
     p Alex Potsides
     small @achingbrain
 
   section
     h2 Q&amp;A
+    p
+      pre https://github.com/ipfs/js-ipfs
+      pre https://github.com/ipfs-shipyard/npm-on-ipfs
+      pre https://github.com/ipfs-shipyard/ipfs-npm-registry-mirror
     p Alex Potsides
     small @achingbrain
-    small npm on ipfs
+    
