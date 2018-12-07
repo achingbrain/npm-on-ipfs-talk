@@ -1,0 +1,24 @@
+{
+  "name": "npm-on-ipfs-talk",
+  "version": "1.0.0",
+  "description": "A slideshow",
+  "license": "ISC",
+  "author": {
+    "name": "Alex Potsides",
+    "email": "alex@achingbrain.net"
+  },
+  "scripts": {
+    "start": "slides present",
+    "publish": "slides publish"
+  },
+  "dependencies": {
+    "@achingbrain/slides": "^0.1.9"
+  },
+  "slides": {
+    "title": "npm on IPFS",
+    "author": "Alex Potsides",
+    "description": "A brief primer on IPFS, then a look at a use case",
+    "theme": "bespoke-theme-nebula",
+    "bullets": ".delayed, .bullet"
+  }
+}
