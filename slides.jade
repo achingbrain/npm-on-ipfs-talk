@@ -11,12 +11,12 @@ article
     p.bullet Working on IPFS
     p.bullet @achingbrain on GitHub and Twitter
     aside(style='font-size: 50px')
-      li Who am i
+      li Who am I
 
   section
     img(src='images/npm-on-ipfs.svg')
     aside(style='font-size: 50px')
-      li What is this talk about
+      li A way to install your dependencies using the power of the distributed web
 
   section
     img(src='images/npm-logo.svg')
@@ -190,7 +190,7 @@ article
   section
     img(src='images/registry-proxy-1.png')
     aside(style='font-size: 50px')
-      li ipfs-registry-mirror
+      li ipfs-npm-registry-mirror
       li js app written with ipfs
       li translates requests for modules into content hashes
       li fetches the content and serves it
@@ -247,6 +247,8 @@ article
     aside(style='font-size: 50px')
       li ipfs-npm init
       li ipfs-npm install --save bignumber
+      li offline
+      li ipfs-npm install --save bignumber --request-retries=1
 
   section
     img(src='images/ipfs-npm.png')
