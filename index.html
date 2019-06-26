@@ -21,8 +21,15 @@
         <p class="bullet">JavaScript Developer at Protocol Labs</p>
         <p class="bullet">Working on IPFS</p>
         <p class="bullet">@achingbrain on GitHub and Twitter</p>
+        <aside style="font-size: 50px">
+          <li>Who am I</li>
+        </aside>
       </section>
-      <section><img src="images/npm-on-ipfs.svg"></section>
+      <section><img src="images/npm-on-ipfs.jpg">
+        <aside style="font-size: 50px">
+          <li>A way to install your dependencies using the power of the distributed web</li>
+        </aside>
+      </section>
       <section><img src="images/npm-logo.svg">
         <aside style="font-size: 50px">
           <li>npm</li>
@@ -33,162 +40,10 @@
       </section>
       <section><img src="images/ipfs.svg">
         <aside style="font-size: 50px">
-          <li>What is it</li>
-          <li>A decentralised, shared file system</li>
-          <li>The distributed web</li>
-          <li>The permanent web</li>
-        </aside>
-      </section>
-      <section>
-        <h2 class="bullet">IPFS</h2>
-        <p>The Interplanetary File System</p>
-        <ul>
-          <li class="bullet">Content addressed</li>
-          <li class="bullet">Distributed File System</li>
-        </ul>
-        <aside style="font-size: 50px">
-          <li>What is it</li>
+          <li>What is IPFS</li>
           <li>Content addressed</li>
           <li>Distributed File System</li>
-        </aside>
-      </section>
-      <section>
-        <h1>Content addressing</h1>
-        <aside style="font-size: 50px">
-          <li>What is content addressing?</li>
-        </aside>
-      </section>
-      <section><img src="images/cat.gif">
-        <p>http://example.com/cat.gif</p>
-        <aside style="font-size: 50px">
-          <li>Say we have a gif we want to get from the internet</li>
-          <li>Normal way is URL</li>
-          <li>Been around forever</li>
-          <li>Understand what they are</li>
-          <li>protocol - host - path</li>
-        </aside>
-      </section>
-      <section>
-        <h1>Problems</h1>
-      </section>
-      <section>
-        <p>No guarantee of content integrity</p><img src="images/hotlinking.jpg">
-        <p>http://example.com/cat.gif</p>
-        <aside style="font-size: 50px">
-          <li>Content changes</li>
-          <li>Request one thing, get something else</li>
-        </aside>
-      </section>
-      <section>
-        <p>Routing is baked in</p><img src="images/server-is-down.jpg">
-        <p>http://example.com/cat.gif</p>
-        <aside style="font-size: 50px">
-          <li>Servers go away</li>
-          <li>Can't find content another way</li>
-        </aside>
-      </section>
-      <section>
-        <p>Easy to block</p><img src="images/blocked.jpg">
-        <p>http://example.com/cat.gif</p>
-        <aside style="font-size: 50px">
-          <li>Typically resolves to a central location</li>
-        </aside>
-      </section>
-      <section>
-        <h2 class="bullet">Content addressing</h2>
-        <ul>
-          <li class="bullet">Content has an identifer<small>
-              <pre>QmcniBv7UQ4gGPQQW2BwbD4ZZHzN3o3tPuNLZCbBchd1zh</pre></small></li>
-          <li class="bullet">The identifier can be used to</li>
-          <li class="bullet">✅ Resolve content</li>
-          <li class="bullet">✅ Verify content</li>
-        </ul>
-        <aside style="font-size: 50px">
-          <li>Content has a content identifeir</li>
-          <li><a href="http://localhost:1234/" target="_blank">cid tools</a></li>
-        </aside>
-      </section>
-      <section>
-        <h1>Distributed</h1>
-        <aside style="font-size: 50px">
-          <li>Wat?</li>
-        </aside>
-      </section>
-      <section>
-        <p>Centralised</p><img src="images/centralised.png">
-        <aside style="font-size: 50px">
-          <li>Single point of faliure</li>
-          <li>Too much traffic to central node</li>
-        </aside>
-      </section>
-      <section>
-        <p>Decentralised</p><img src="images/decentralised.png">
-        <aside style="font-size: 50px">
-          <li>Many points of failure</li>
-          <li>Easy to form isolated islands</li>
-          <li>Inefficient routing</li>
-        </aside>
-      </section>
-      <section>
-        <p>Distributed</p><img src="images/distributed.png">
-        <aside style="font-size: 50px">
-          <li>Every peer is equal</li>
-          <li>Multiple routes through the network</li>
-          <li>Fault tolerant and resiliant to failure</li>
-          <li>Can route around problem nodes</li>
-        </aside>
-      </section>
-      <section data-bespoke-backdrop="sunrise"><img src="images/ipfs.svg">
-        <aside style="font-size: 50px">
-          <li>IPFS</li>
-          <li>How does it work</li>
-        </aside>
-      </section>
-      <section data-bespoke-backdrop="sunrise">
-        <p>Each file is broken into chunks</p><img src="images/ipfs-illustrations-how-1.svg">
-        <aside style="font-size: 50px">
-          <li>Each file is broken into chunks</li>
-          <li>Each chunk has a content identifier</li>
-        </aside>
-      </section>
-      <section data-bespoke-backdrop="sunrise">
-        <p>Duplicates are removed</p><img src="images/ipfs-illustrations-how-2.svg">
-        <aside style="font-size: 50px">
-          <li>Every peer is equal</li>
-        </aside>
-      </section>
-      <section data-bespoke-backdrop="sunrise">
-        <p>Each network node makes content available</p><img src="images/ipfs-illustrations-how-3.svg">
-        <aside style="font-size: 50px">
-          <li>Content is distributed through the network</li>
-        </aside>
-      </section>
-      <section data-bespoke-backdrop="sunrise">
-        <p>The network resolves content based on the hash</p><img src="images/ipfs-illustrations-how-4.svg">
-        <aside style="font-size: 50px">
-          <li>Peers will pass on queries for content</li>
-        </aside>
-      </section>
-      <section data-bespoke-backdrop="sunrise"><img src="images/ipfs-illustration-network.svg" height="200%" width="200%">
-        <aside style="font-size: 50px">
-          <li>Network is resilient</li>
-          <li>Hashes are stable</li>
-          <li>Each node hasing content gets the same hash</li>
-          <li>Content is replicated throughout the network</li>
-          <li>Approaching the permanent web</li>
-        </aside>
-      </section>
-      <section data-bespoke-backdrop="contributors">
-        <h2>And it's all open source</h2>
-        <li>3100+ contributors</li>
-        <li>340+ contributing every month</li>
-      </section>
-      <section><img src="images/npm-on-ipfs.jpg">
-        <aside style="font-size: 50px">
-          <li>Back to npm on IPFS</li>
-          <li>commons registry</li>
-          <li>mirrors all of npm on ipfs</li>
-          <li>used internally to ensure ipfs can process TBs of data</li>
+          <li>Used to build distributed applications</li>
         </aside>
       </section>
       <section data-bespoke-backdrop="sunrise">
@@ -201,30 +56,6 @@
           <li>How does it work</li>
         </aside>
       </section>
-      <section><img src="images/registry-proxy-1.png">
-        <aside style="font-size: 50px">
-          <li>ipfs-registry-mirror</li>
-          <li>js app written with ipfs</li>
-          <li>translates requests for modules into content hashes</li>
-          <li>fetches the content and serves it</li>
-          <li>gets from npm if not available</li>
-          <li>adds new npm content to the network</li>
-        </aside>
-      </section>
-      <section><img src="images/registry-proxy-hash.png">
-        <aside style="font-size: 50px">
-          <li>user installs something</li>
-          <li>npm doesn't understand ipfs as a transport</li>
-          <li>only supports http</li>
-        </aside>
-      </section>
-      <section><img src="images/registry-proxy-2.png">
-        <aside style="font-size: 50px">
-          <li>user installs something</li>
-          <li>npm doesn't understand ipfs as a transport</li>
-          <li>only supports http</li>
-        </aside>
-      </section>
       <section><img src="images/registry-proxy-3.png">
         <aside style="font-size: 50px">
           <li>we stuck an nginx on it</li>
@@ -233,21 +64,22 @@
         </aside>
       </section>
       <section>
-        <h2>But how is this better?</h2>
-        <aside style="font-size: 50px">
-          <li>The network makes guarentees that content will be available</li>
-          <li>But apart from that it's not much better</li>
-          <li>What if you could skip HTTP and just pull content from IPFS?</li>
-        </aside>
-      </section>
-      <section>
-        <h2>You can!</h2>
+        <h2>ipfs-npm</h2>
         <pre>npm install -g ipfs-npm</pre>
         <pre class="bullet">ipfs-npm install</pre>
         <p class="bullet">or</p>
         <pre class="bullet">ipfs-yarn</pre>
         <aside style="font-size: 50px">
           <li>Supports yarn too</li>
+        </aside>
+      </section>
+      <section>
+        <h1>Demo</h1>
+        <aside style="font-size: 50px">
+          <li>ipfs-npm init</li>
+          <li>ipfs-npm install --save bignumber</li>
+          <li>offline</li>
+          <li>ipfs-npm install --save bignumber --request-retries=1</li>
         </aside>
       </section>
       <section><img src="images/ipfs-npm-internals.png">
@@ -259,42 +91,44 @@
           <li>proxies all other requests to public npm registry (publishing etc)</li>
         </aside>
       </section>
-      <section><img src="images/ipfs-npm.png">
-        <aside style="font-size: 50px">
-          <li>become part of the network</li>
-          <li>for a few mintues</li>
-        </aside>
-      </section>
       <section><img src="images/ipfs-npm-replication.png">
         <aside style="font-size: 50px">
-          <li>how to get new versions of modules?</li>
-          <li>how to reduce dependence on central registry?</li>
           <li>replication nodes seeding IPFS with content</li>
           <li>running 24x7</li>
           <li>what next?</li>
           <li>add ipfs as a transport to npm</li>
           <li>add ipfs hashes to npm registry</li>
           <li>publishing to IPFS?</li>
+          <li>no central registry?</li>
         </aside>
       </section>
       <section>
-        <h2>All open source</h2>
+        <h1>Next</h1>
+        <aside style="font-size: 50px"></aside>
+      </section>
+      <section>
+        <h2>Distributed publishing</h2>
+        <li class="bullet">https://github.com/zkat/pacote/pull/173</li>
+        <li class="bullet">Publish a packument over IPNS</li>
+        <pre class="bullet">"my-module": "ipns://Qmfoo#^1.0.0"</pre>
+      </section>
+      <section>
+        <h2>Thanks!</h2>
         <p>
           <pre>https://github.com/ipfs/js-ipfs</pre>
           <pre>https://github.com/ipfs-shipyard/npm-on-ipfs</pre>
           <pre>https://github.com/ipfs-shipyard/ipfs-npm-registry-mirror</pre>
         </p>
-        <aside style="font-size: 50px">
-          <li>All open source</li>
-        </aside>
-      </section>
-      <section>
-        <h2>Thanks!</h2>
         <p>Alex Potsides</p><small>@achingbrain</small>
       </section>
       <section>
         <h2>Q&amp;A</h2>
-        <p>Alex Potsides</p><small>@achingbrain</small><small>npm on ipfs</small>
+        <p>
+          <pre>https://github.com/ipfs/js-ipfs</pre>
+          <pre>https://github.com/ipfs-shipyard/npm-on-ipfs</pre>
+          <pre>https://github.com/ipfs-shipyard/ipfs-npm-registry-mirror</pre>
+        </p>
+        <p>Alex Potsides</p><small>@achingbrain</small>
       </section>
     </article>
     <script src="js/slides.js"></script>
