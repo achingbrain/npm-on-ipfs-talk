@@ -14,7 +14,7 @@ article
       li Who am I
 
   section
-    img(src='images/npm-on-ipfs.svg')
+    img(src='images/npm-on-ipfs.jpg')
     aside(style='font-size: 50px')
       li A way to install your dependencies using the power of the distributed web
 
@@ -30,152 +30,16 @@ article
     img(src='images/ipfs.svg')
     aside(style='font-size: 50px')
       li What is IPFS
-      li A distributed, shared file system
-      li Used to build distributed applications
-      li Or dweb
-
-  section
-    h2.bullet IPFS
-    p The Interplanetary File System
-    ul
-      li.bullet Content addressed
-      li.bullet Distributed File System
-    aside(style='font-size: 50px')
-      li What is it
       li Content addressed
       li Distributed File System
+      li Used to build distributed applications
 
-  section
-    h1 Content addressing
-    aside(style='font-size: 50px')
-      li What is content addressing?
-
-  section
-    p http://example.com/cat.gif
-    img(src='images/cat.gif')
-    aside(style='font-size: 50px')
-      li Say we have a gif we want to get from the internet
-      li Normal way is URL
-      li Been around forever
-      li Understand what they are
-      li Location based addressing
-      li protocol - host - path
-
-  section
-    h1 Problems
-    aside(style='font-size: 50px')
-      li Not the ideal solution
-
-  section
-    p No guarantee of content integrity
-    img(src='images/hotlinking.jpg')
-    aside(style='font-size: 50px')
-      li Content changes
-      li Request one thing, get something else
-
-  section
-    p Routing is baked in
-    img(src='images/server-is-down.jpg')
-    aside(style='font-size: 50px')
-      li Servers go away
-      li Can't find content another way
-
-  section
-    p Easy to block
-    img(src='images/blocked.jpg')
-    aside(style='font-size: 50px')
-      li Typically resolves to a central location
-      li Makes it easy to block things like Wikipedia in developing nations
-
-  section
-    h2.bullet Content addressing
-    ul
-      li.bullet Content has an identifer (CID)
-        small
-          pre QmcniBv7UQ4gGPQQW2BwbD4ZZHzN3o3tPuNLZCbBchd1zh
-      li.bullet The identifier can be used to
-      li.bullet ✅ Resolve content
-      li.bullet ✅ Verify content
-    aside(style='font-size: 50px')
-      ul
-        li Content has a content identifer
-        li It looks like this
-        li Can unpack it:
-        li
-          a(href="http://localhost:1234/" target="_blank") cid tools
-
-  section
-    h1 Distributed
-    aside(style='font-size: 50px')
-      li Wat?
-
-  section
-    p Centralised
-    img(src='images/centralised.png')
-    aside(style='font-size: 50px')
-      li Single point of failure
-      li Too much traffic to central node
-  
-  section
-    p Decentralised
-    img(src='images/decentralised.png')
-    aside(style='font-size: 50px')
-      li Many points of failure
-      li Easy to form isolated islands
-      li Inefficient routing
-
-  section
-    p Distributed
-    img(src='images/distributed.png')
-    aside(style='font-size: 50px')
-      li Every peer is equal
-      li Multiple routes through the network
-      li Fault tolerant and resiliant to failure
-      li Can route around problem nodes
-
-  section(data-bespoke-backdrop='sunrise')
-    img(src='images/ipfs.svg')
-    aside(style='font-size: 50px')
-      li Those are the techonolgies that underpin IPFS
-      li But how does it work?
-
-  section(data-bespoke-backdrop='sunrise')
-    p Each file is broken into chunks
-    img(src='images/ipfs-illustrations-how-1.svg')
-    aside(style='font-size: 50px')
-      li Each file is broken into chunks
-      li Each chunk has a content identifier
-      li Chunks are arranged in a graph
-      li A Directed Acyclic Graph
-      li A DAG
-      li Duplicates are removed by matching content identifiers
-
-  section(data-bespoke-backdrop='sunrise')
-    p Each network node makes content available
-    img(src='images/ipfs-illustrations-how-3.svg')
-    aside(style='font-size: 50px')
-      li Each node makes some or all of the chunks available
-      li Content is distributed through the network
-
-  section(data-bespoke-backdrop='sunrise')
-    p The network resolves content based on the Content Identifier
-    img(src='images/ipfs-illustrations-how-4.svg')
-    aside(style='font-size: 50px')
-      li Peers will pass on queries for content
-
-  section(data-bespoke-backdrop='contributors')
-    h2 And it's all open source
-    li 3100+ contributors
-    li 340+ contributing every month
-    li https://github.com/ipfs
-
-  section
-    img(src='images/npm-on-ipfs.jpg')
-    aside(style='font-size: 50px')
-      li Back to npm on IPFS
-      li commons registry
-      li mirrors all of npm on ipfs
-      li used internally to ensure ipfs can process TBs of data
+  //- section
+  //-   img(src='images/npm-on-ipfs.svg')
+  //-   aside(style='font-size: 50px')
+  //-     li commons registry
+  //-     li mirrors all of npm on ipfs
+  //-     li used internally to ensure ipfs can process TBs of data
 
   section(data-bespoke-backdrop='sunrise')
     p
@@ -187,29 +51,29 @@ article
       li IPFS
       li How does it work
 
-  section
-    img(src='images/registry-proxy-1.png')
-    aside(style='font-size: 50px')
-      li ipfs-npm-registry-mirror
-      li js app written with ipfs
-      li translates requests for modules into content hashes
-      li fetches the content and serves it
-      li gets from npm if not available
-      li adds new npm content to the network
+  //- section
+  //-   img(src='images/registry-proxy-1.png')
+  //-   aside(style='font-size: 50px')
+  //-     li ipfs-npm-registry-mirror
+  //-     li js app written with ipfs
+  //-     li translates requests for modules into content hashes
+  //-     li fetches the content and serves it
+  //-     li gets from npm if not available
+  //-     li adds new npm content to the network
 
-  section
-    img(src='images/registry-proxy-hash.png')
-    aside(style='font-size: 50px')
-      li user installs something
-      li npm doesn't understand ipfs as a transport
-      li only supports http
+  //- section
+  //-   img(src='images/registry-proxy-hash.png')
+  //-   aside(style='font-size: 50px')
+  //-     li user installs something
+  //-     li npm doesn't understand ipfs as a transport
+  //-     li only supports http
 
-  section
-    img(src='images/registry-proxy-2.png')
-    aside(style='font-size: 50px')
-      li user installs something
-      li npm doesn't understand ipfs as a transport
-      li only supports http
+  //- section
+  //-   img(src='images/registry-proxy-2.png')
+  //-   aside(style='font-size: 50px')
+  //-     li user installs something
+  //-     li npm doesn't understand ipfs as a transport
+  //-     li only supports http
 
   section
     img(src='images/registry-proxy-3.png')
@@ -218,20 +82,38 @@ article
       li load balances to IPFS nodes
       li nodes keep content available on the network
 
-  section
-    h2 But how is this better?
-    aside(style='font-size: 50px')
-      li Like this there's not much benefit
-      li What if you could skip HTTP and just pull content from IPFS?
+  //- section
+  //-   h2 But how is this better?
+  //-   aside(style='font-size: 50px')
+  //-     li Like this there's not much benefit
+  //-     li What if you could skip HTTP and just pull content from IPFS?
+
+  //- section
+  //-   h2 You can!
+  //-   pre npm install -g ipfs-npm
+  //-   pre.bullet ipfs-npm install
+  //-   p.bullet or
+  //-   pre.bullet ipfs-yarn
+  //-   aside(style='font-size: 50px')
+  //-     li Supports yarn too
 
   section
-    h2 You can!
+    h2 ipfs-npm
     pre npm install -g ipfs-npm
     pre.bullet ipfs-npm install
     p.bullet or
     pre.bullet ipfs-yarn
     aside(style='font-size: 50px')
       li Supports yarn too
+
+  section
+    h1 Demo
+    aside(style='font-size: 50px')
+      li ipfs-npm init
+      li ipfs-npm install --save bignumber
+      li offline
+      li turn off wifi
+      li ipfs-npm install --save bignumber --request-retries=1
 
   section
     img(src='images/ipfs-npm-internals.png')
@@ -243,22 +125,6 @@ article
       li proxies all other requests to public npm registry (publishing etc)
 
   section
-    h1 Demo
-    aside(style='font-size: 50px')
-      li ipfs-npm init
-      li ipfs-npm install --save bignumber
-      li offline
-      li ipfs-npm install --save bignumber --request-retries=1
-
-  section
-    img(src='images/ipfs-npm.png')
-    aside(style='font-size: 50px')
-      li become part of the network
-      li for a few mintues
-      li Final piece of the puzzle is replication
-      li how to get new versions of modules?
-
-  section
     img(src='images/ipfs-npm-replication.png')
     aside(style='font-size: 50px')
       li replication nodes seeding IPFS with content
@@ -268,6 +134,23 @@ article
       li add ipfs hashes to npm registry
       li publishing to IPFS?
       li no central registry?
+
+  section
+    h1 Next
+    aside(style='font-size: 50px')
+
+  section
+    h2 Distributed publishing
+    li.bullet https://github.com/zkat/pacote/pull/173
+    li.bullet Publish a packument over IPNS
+    pre.bullet "my-module": "ipns://Qmfoo#^1.0.0"
+
+  section
+    h2 npm-in-a-box
+    li.bullet A local-network npm proxy on a Raspberry Pi
+    li.bullet Cache npm modules for you
+    li.bullet Connected to the IPFS network
+    li.bullet Publish IPNS names for your published modules
 
   section
     h2 Thanks!
