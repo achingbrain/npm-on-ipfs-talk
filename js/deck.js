@@ -1,6 +1,7 @@
 const Terminal = require('dom-terminal/lib/terminal')
 const parser = require('yargs-parser')
 const boot = require('./system/boot')
+const fs = require('./system/fs')
 
 const commands = {
   ls: require('./commands/ls'),
@@ -56,6 +57,8 @@ module.exports = (deck) => {
     })
 
     boot()
+
+    terminal.setPrompt(fs.pwd().split('/').pop() + ' ')
   } catch (err) {
     console.error(err)
   }
