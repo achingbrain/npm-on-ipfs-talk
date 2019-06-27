@@ -12,7 +12,14 @@
     "publish": "slides publish"
   },
   "dependencies": {
-    "@achingbrain/slides": "^0.1.9"
+    "@achingbrain/slides": "^0.1.9",
+    "async": "^3.1.0",
+    "babel-loader": "^8.0.6",
+    "dom-terminal": "achingbrain/dom-terminal",
+    "ipfs-npm": "^0.16.3",
+    "json-loader": "^0.5.7",
+    "minimatch": "^3.0.4",
+    "yargs-parser": "^13.1.1"
   },
   "slides": {
     "title": "npm on IPFS",
