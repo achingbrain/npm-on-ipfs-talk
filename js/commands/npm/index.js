@@ -1,17 +1,21 @@
-const {
-  slowLog
-} = require('../../util')
+import parser from 'yargs-parser'
+import install from './install'
 
 const subCommands = {
-  install: require('./install')
+  install
 }
 
-module.exports = {
-  handler: (t, args) => {
-    const subCommand = args._.shift()
+export default {
+  handler: (args, session) => {
+    const subCommand = subCommands[args._.shift()]
 
-    if (subCommands[subCommand]) {
-      return subCommands[subCommand].handler(t, args)
+    if (subCommand) {
+      if (subCommand.args) {
+        args = parser(session.env._, subCommand.args)
+        args._ = args._.slice(2)
+      }
+
+      return subCommand.handler(args, session)
     }
 
     return `<pre>Usage: npm <command>

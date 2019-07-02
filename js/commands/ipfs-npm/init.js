@@ -1,12 +1,7 @@
-const fs = require('../../system/fs')
-const users = require('../../system/users')
-const {
-  slowLog
-} = require('../../util')
 
-module.exports = {
-  handler: (t, args) => {
-    const pwd = fs.pwd()
+export default {
+  handler: (args, session) => {
+    const pwd = session.env.PWD
     const proj = pwd.split('/').pop()
 
     const content = `{
@@ -22,7 +17,7 @@ module.exports = {
   "license": "ISC"
 }`
 
-    fs.write(`${pwd}/package.json`, content, users.ids('alex'))
+    session.fs.write(`${pwd}/package.json`, content, session)
 
     return `<pre>Wrote to ${pwd}/package.json:
 

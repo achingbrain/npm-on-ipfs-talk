@@ -1,10 +1,10 @@
-const {
+import {
   npmInstallLog
-} = require('./util')
+} from './util'
 
-module.exports = {
-  handler: (t, args) => {
-    npmInstallLog(t, {
+export default {
+  handler: (args, session) => {
+    return npmInstallLog({
       name: args._[0],
       dependencies: [
         'dnscache',
@@ -26,4 +26,3 @@ module.exports = {
     })
   }
 }
-

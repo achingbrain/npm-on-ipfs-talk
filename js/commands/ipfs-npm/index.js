@@ -1,18 +1,26 @@
-const {
+import {
   slowLog
-} = require('../../util')
+} from '../../util'
+import parser from 'yargs-parser'
+import init from './init'
+import install from './install'
 
 const subCommands = {
-  init: require('./init'),
-  install: require('./install')
+  init,
+  install
 }
 
-module.exports = {
-  handler: (t, args) => {
-    const subCommand = args._.shift()
+export default {
+  handler: (args, session) => {
+    const subCommand = subCommands[args._.shift()]
 
-    if (subCommands[subCommand]) {
-      return subCommands[subCommand].handler(t, args)
+    if (subCommand) {
+      if (subCommand.args) {
+        args = parser(session.env._, subCommand.args)
+        args._ = args._.slice(2)
+      }
+
+      return subCommand.handler(args, session)
     }
 
     const log = [
@@ -52,13 +60,7 @@ npm@6.4.1 /Users/alex/.nvm/versions/node/v10.15.3/lib/node_modules/npm
 🤷 No package-lock.json found</pre>`
     ]
 
-    slowLog(t, {
-      next: function () {
-        return log.shift()
-      }
-    }, 50, 200, () => {})
-
-    return ''
+    return slowLog(log, 50, 200)
   },
   args: {
     boolean: [

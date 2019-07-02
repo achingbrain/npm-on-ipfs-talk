@@ -1,9 +1,9 @@
-const {
+import {
   slowLog,
   randomNumber
-} = require('../../util')
+} from '../../util'
 
-const npmInstallLog = (t, pkg) => {
+export function npmInstallLog (pkg) {
   let deps = [
     'npm info it worked if it ends with ok',
     'npm info using npm@6.4.1',
@@ -33,21 +33,5 @@ const npmInstallLog = (t, pkg) => {
     'npm info ok'
   ])
 
-  const start = Date.now()
-
-  slowLog(t, {
-    next: function () {
-      let line = deps.shift()
-
-      if (!line) {
-        return null
-      }
-
-      return line.replace('%time%', Date.now() - start)
-    }
-  }, 50, 200, () => {})
-}
-
-module.exports = {
-  npmInstallLog
+  return slowLog(deps, 100, 200)
 }

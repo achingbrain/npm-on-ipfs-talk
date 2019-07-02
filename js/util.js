@@ -1,39 +1,18 @@
-module.exports = {
-  slowLog,
-  series,
-  randomNumber
-}
+import delay from 'delay'
 
-function randomNumber (min, max) {
+export function randomNumber (min, max) {
   return Math.random() * (max - min) + min;
 }
 
-function slowLog(t, iterator, min, max, done) {
-  let next = iterator.next()
+export async function * slowLog (lines, min, max) {
+  const start = Date.now()
 
-  if (next === undefined || next === null) {
-    return done()
+  for await (let line of lines) {
+    line = line.replace(/\t/g, '') + '<br/>'
+    line = line.replace('%time%', Date.now() - start)
+
+    yield line
+
+    await delay(randomNumber(min, max))
   }
-
-  t.print(next.replace(/\t/g, '') + '<br/>')
-
-  setTimeout(() => {
-    slowLog(t, iterator, min, max, done)
-  }, randomNumber(min, max))
-}
-
-function series (ops, done) {
-  const op = ops.shift()
-
-  op((err, res) => {
-    if (err) {
-      return done(err)
-    }
-
-    if (!ops.length) {
-      return done(null, res)
-    }
-
-    return series(ops, done)
-  })
 }

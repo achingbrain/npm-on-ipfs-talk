@@ -1,27 +1,23 @@
-const fs = require('../../system/fs')
-const users = require('../../system/users')
-const {
+import {
   slowLog,
   randomNumber
-} = require('../../util')
+} from '../../util'
 
-module.exports = {
-  handler: (t, args) => {
-    const pwd = fs.pwd()
+export default {
+  handler: (args, session) => {
+    const pwd = session.env.PWD
     const pkg = `${pwd}/package.json`
-    const content = fs.read(pkg)
+    const content = session.fs.read(pkg)
     const manifest = JSON.parse(content)
 
     if (args._.length) {
       // install a package
-      npmInstallSinglePackageLog(t, args._[0])
-
       if (args.save) {
         manifest.dependencies = manifest.dependencies || {}
         manifest.dependencies[args._[0]] = '^9.0.0'
 
-        fs.write(pkg, JSON.stringify(manifest, null, 2), users.ids('alex'))
-        fs.write(`${pwd}/package-lock.json`, `{
+        session.fs.write(pkg, JSON.stringify(manifest, null, 2), session)
+        session.fs.write(`${pwd}/package-lock.json`, `{
   "name": "${manifest.name}",
   "version": "1.0.0",
   "lockfileVersion": 1,
@@ -33,12 +29,14 @@ module.exports = {
       "integrity": "sha512-t/OYhhJ2SD+YGBQcjY8GzzDHEk9f3nerxjtfa6tlMXfe7frs/WozhvCNoGvpM0P3bNf3Gq5ZRMlGr5f3r4/N8A=="
     }
   }
-}`)
-        fs.mkdir(`${pwd}/node_modules`, users.ids('alex'))
-        fs.mkdir(`${pwd}/node_modules/${args._[0]}`, users.ids('alex'))
-        fs.write(`${pwd}/node_modules/${args._[0]}/package.json`, 'I am a very nice package', users.ids('alex'))
-        fs.write(`${pwd}/node_modules/${args._[0]}/index.js`, 'Look at me being an implementation', users.ids('alex'))
+}`, session)
+        session.fs.mkdir(`${pwd}/node_modules`, session)
+        session.fs.mkdir(`${pwd}/node_modules/${args._[0]}`, session)
+        session.fs.write(`${pwd}/node_modules/${args._[0]}/package.json`, 'I am a very nice package', session)
+        session.fs.write(`${pwd}/node_modules/${args._[0]}/index.js`, 'Look at me being an implementation', session)
       }
+
+      return npmInstallSinglePackageLog(args._[0])
     } else {
       // install all of the packages
     }
@@ -50,7 +48,7 @@ module.exports = {
   }
 }
 
-const npmInstallSinglePackageLog = (t, pkg) => {
+const npmInstallSinglePackageLog = (pkg) => {
   let logs = [
     '👩‍🚀 Starting local proxy',
     '🚀 Server running on port 60000',
@@ -85,64 +83,5 @@ const npmInstallSinglePackageLog = (t, pkg) => {
     '🔏 Updating package-lock.json'
   ]
 
-  const start = Date.now()
-
-  slowLog(t, {
-    next: function () {
-      let line = logs.shift()
-
-      if (!line) {
-        return null
-      }
-
-      return line.replace('%time%', Date.now() - start)
-    }
-  }, 200, 500, () => {})
-}
-
-
-
-const npmInstallLog = (t, pkg) => {
-  let deps = [
-    'npm info it worked if it ends with ok',
-    'npm info using npm@6.4.1',
-    'npm info using node@v10.15.3',
-    `npm http fetch GET 304 https://registry.npmjs.org/${pkg.name} 997ms (from cache)`,
-    'npm timing stage:loadCurrentTree Completed in 6248ms',
-    'npm timing stage:loadIdealTree:cloneCurrentTree Completed in 36ms',
-    'npm timing stage:loadIdealTree:loadShrinkwrap Completed in 2452ms'
-  ]
-
-  pkg.dependencies.forEach(dep => {
-    deps.push(`npm http fetch GET 304 https://registry.npmjs.org/${dep} ${randomNumber(100, 500)}ms (from cache)`)
-  })
-
-  pkg.dependencies.forEach(dep => {
-    deps.push(`npm info lifecycle ${dep}@0.8.0~postinstall: ${dep}@0.8.0`)
-  })
-
-  deps = deps.concat([
-    'npm timing action:postinstall Completed in 391ms',
-    'npm timing stage:executeActions Completed in %time%ms',
-    'npm timing stage:rollbackFailedOptional Completed in 2ms',
-    'npm timing stage:runTopLevelLifecycles Completed in %time%ms',
-    `+ ${pkg.name}@0.16.3`,
-    'added 163 packages from 285 contributors and updated 1132 packages in 97.761s',
-    'npm timing npm Completed in %time%ms',
-    'npm info ok'
-  ])
-
-  const start = Date.now()
-
-  slowLog(t, {
-    next: function () {
-      let line = deps.shift()
-
-      if (!line) {
-        return null
-      }
-
-      return line.replace('%time%', Date.now() - start)
-    }
-  }, 50, 200, () => {})
+  return slowLog(logs, 200, 500)
 }
