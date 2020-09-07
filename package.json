@@ -15,7 +15,7 @@
     "@achingbrain/slides": "~0.2.0",
     "delay": "^4.3.0",
     "terminatorator": "~0.0.6",
-    "yargs-parser": "^13.1.1"
+    "yargs-parser": "^13.1.2"
   },
   "slides": {
     "title": "npm on IPFS",
